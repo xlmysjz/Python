@@ -1,6 +1,6 @@
 #-*-coding:utf-8-*-
 '''
-这是在topka-个人设置-专家达人认证 上勾选所有 checkbox 的脚本
+这是在topka-个人设置-专家达人认证 上勾选所有 checkbox 的脚本 
 已全部写完
 '''
 import unittest
