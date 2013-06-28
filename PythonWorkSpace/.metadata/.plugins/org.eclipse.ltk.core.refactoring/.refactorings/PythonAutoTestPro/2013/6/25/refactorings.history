@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;PythonAutoTestPro/src/opentest/opentest1(冲突_xulei-PC_2013-06-20 21-57-11).py&apos; to &apos;opentest1.py&apos;" description="Rename resource &apos;opentest1(冲突_xulei-PC_2013-06-20 21-57-11).py&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/opentest/opentest1(冲突_xulei-PC_2013-06-20 21-57-11).py" name="opentest1.py" stamp="1371736873216" updateReferences="true"/>
-</session>
