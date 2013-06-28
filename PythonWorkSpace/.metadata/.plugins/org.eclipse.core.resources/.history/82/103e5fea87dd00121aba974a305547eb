@@ -1,0 +1,26 @@
+'''
+Created on 2013-6-25
+
+@author: Administrator
+'''
+import unittest
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+
+class selectCheckBox(unittest.TestCase):
+    def setUp(self):
+        self.cdr=webdriver.Chrome()
+        self.URL="http://www.topka.cn"
+    def test_Info(self):
+        cdr=self.cdr
+        url=self.URL
+        cdr.get(url)
+        
+        #WebDriverWait(cdr,10).until(lambda cdr:cdr.find_element_by_xpath("//[@id='J_connect']/div[2]/div/div/span/a[2]"))
+        
+        cdr.find_element_by_xpath("//[@id='J_connect']/div[2]/div/div/span/a[2]").click()
+
+if __name__ == "__main__":
+    test=unittest.TestSuite()
+    test.addTest(selectCheckBox("test_Info"))
+    unittest.TextTestRunner().run(test)

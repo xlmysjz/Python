@@ -1,0 +1,9 @@
+
+t=opentest1.Test()
+t.setup()
+t.logo()
+t.login("xlmysjz@126.com","xl123456")
+t.search()
+t.LogOut()
+
+

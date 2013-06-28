@@ -1,0 +1,70 @@
+#-*-coding:utf-8-*-
+'''
+这是在topka-个人设置-专家达人认证 上勾选所有 checkbox 的脚本
+'''
+import unittest
+import time
+from selenium.webdriver import ActionChains
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+
+class selectCheckBox(unittest.TestCase):
+    def setUp(self):
+        self.cdr=webdriver.Chrome()
+        self.URL="http://www.topka.cn"
+    def test_Info(self):
+        cdr=self.cdr
+        url=self.URL
+        cdr.get(url)
+        
+        WebDriverWait(cdr,10).until(lambda cdr:cdr.find_element_by_xpath(".//*[@id='J_connect']/div[2]/div/div/span/a[2]"))
+        time.sleep(2)
+        cdr.find_element_by_xpath(".//*[@id='J_connect']/div[2]/div/div/span/a[2]").click()#点击登录
+        
+        WebDriverWait(cdr,10).until(lambda cdr:cdr.find_element_by_id("email_login"))
+        cdr.find_element_by_id("email_login").click()#点击使用邮箱登陆
+        print cdr.find_element_by_id("email_login").get_attribute("title")
+        
+        #输入用户名密码
+        time.sleep(2)
+        cdr.find_element_by_id("login_email").send_keys("zheshizhuce@sina.com")
+        cdr.find_element_by_id("login_password").send_keys("123456")
+        cdr.find_element_by_id("remember_me").click()#去掉记住登陆 checkbox
+        #点击登录按钮
+        cdr.find_element_by_id("login").click()
+        
+        time.sleep(3)
+        #鼠标移动到 头像旁边的下落箭头上
+        action=ActionChains(cdr)
+        action.move_to_element(cdr.find_element_by_xpath("//div[@class='tr']/div/span[2]")).perform()
+        
+        #下拉菜单点击 个人设置
+        cdr.find_element_by_xpath("//div[@class='tr']/div/span[3]/ul/li[3]/a").click()
+        #点击专家达人认证 标签
+        time.sleep(3)
+        cdr.find_element_by_xpath("//div[@class='shelfsetul']/ul/li[6]/a").click()
+        
+        #全部选中 topka-个人设置-专家达人认证-擅长领域里的 checkbox
+        #cdr.find_element_by_xpath("//li[@id='goodat_area']/input[1]").click()
+        
+        #下面这两个是等价的
+        [cdr.find_element_by_xpath("//li[@id='goodat_area']/input"+'['+str(i)+']').click() for i in range(1,9)]
+        '''
+        for i in range(1,9):
+            cdr.find_element_by_xpath("//li[@id='goodat_area']/input"+'['+str(i)+']').click()
+        '''
+        time.sleep(2)
+        #鼠标移动到 头像旁边的下落箭头上
+        action=ActionChains(cdr)
+        action.move_to_element(cdr.find_element_by_xpath("//div[@class='tr']/div/span[2]")).perform()
+        #下拉菜单点击 退出帐号
+        cdr.find_element_by_xpath("//div[@class='tr']/div/span[3]/ul/li[4]/a").click()
+        
+        #最后退出浏览器
+        cdr.quit()
+        #D:\Program Files\kuaipan\Git\webdriver_guide\09\find_elements.md
+
+if __name__ == "__main__":
+    test=unittest.TestSuite()
+    test.addTest(selectCheckBox("test_Info"))
+    unittest.TextTestRunner().run(test)
