@@ -1,0 +1,171 @@
+#-*-coding:utf-8-*-
+'''
+http://bbs.opentest.cn/thread-68-1-1.html
+
+如上所示的百度首页
+主要实现 红色标记出的功能点
+1. 验证百度logo图片，是否是： baidu_sylogo1 ，验证图片地址url。
+2. 点击登录 输入用户密码， 登录成功
+3. 输入关键词 点击百度一下， 显示搜索页面
+
+百度登陆用户名：xlmysjz@126.com 密码 xl123456
+#模拟鼠标操作
+actionChains = ActionChains(driver) 
+actionChains.move_to_element(implement).perform() 
+
+下面是 autoit 上传脚本，只要改 send路径就可
+;选long.jpg的图片
+WinWait("[Class:#32770]", "", 5)
+WinActivate("[Class:#32770]")
+ControlFocus( "[Class:#32770]", "", "[CLASS:Edit; INSTANCE:1]" )         
+Send("c:\long.jpg")
+
+ControlClick("[Class:#32770]", "打开(O)", "取消 ")
+Send("!O")
+
+'''
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver import ActionChains
+import unittest,time
+from encodings import gbk
+import os
+import HTMLTestRunner
+
+class Test():#unittest.TestCase
+    
+    def setUp(self):
+        self.cdr=webdriver.Chrome()
+        self.cdr.implicitly_wait(3)#隐性等待3秒
+        self.URL="http://www.baidu.com"
+ 
+    def test_Logo(self):
+        cdr=self.cdr
+        cdr.get(self.URL)
+        #截一张图
+        cdr.save_screenshot(r"X:\PythonWorkSpace\PythonAutoTestPro\src\opentest\something\image.png")
+        imageElement=cdr.find_element_by_xpath("//p[@id='lg']/img")
+        
+        #验证 "bdlogo.gif" 是否在 src的属性里
+        #self.assertEqual(self.tclass.sum(1, 2), 3) 
+        assert "bdlogo.gif" in imageElement.get_attribute('src')
+        
+    def test_Login(self):
+        cdr=self.cdr
+        time.sleep(2)
+        cdr.find_element_by_id("lb").click()
+        #cdr.switch_to_frame("login_iframe")
+        cdr.find_element_by_name("userName").send_keys("xlmysjz@126.com")
+        cdr.find_element_by_name("password").send_keys("xl123456")
+        cdr.find_element_by_id("TANGRAM__PSP_10__submit").click()
+        #cdr.switch_to_default_content()#如果进入frame后，操作完毕要退出frame
+        
+    def test_Search(self):
+        cdr=self.cdr
+        time.sleep(3)
+        WebDriverWait(cdr,10).until(lambda cdr : cdr.find_element_by_name("wd"))#显性等待
+        cdr.find_element_by_name("wd").send_keys(unicode("百度空间"))
+        cdr.find_element_by_id("su").click()
+        
+        cdr.find_element_by_xpath("//table[@id='1']/tbody/tr/td/h3/a").click()
+        
+        print "这是还没有跳转的title是："+cdr.title
+        for handle in cdr.window_handles:
+            if handle == cdr.current_window_handle:
+                continue
+            cdr.switch_to_window(handle)
+        print "跳转后的title是：",cdr.title
+        '''
+        #上面的也可以写成下面的形式
+        for handle in cdr.window_handles:
+            cdr.switch_to_window(handle)
+        print cdr.title     
+        '''
+        cdr.implicitly_wait(3)
+        cdr.find_element_by_class_name("ent-icon-wraper").click()
+        cdr.implicitly_wait(30)
+        
+        #下面这两种方法都可以
+        cdr.find_element_by_id("title").send_keys(unicode("这是脚本标题")) #By.xpath("//ul/li[text()='@sohu.com']")
+        #cdr.find_element_by_xpath("//input[contains(@class,'qpub-text placeholder')]").send_keys(unicode("这是脚本标题"))
+        
+        cdr.switch_to_frame("baidu_editor_0")#进入frame
+        cdr.find_element_by_xpath("//html/body").send_keys(unicode("这是使用脚本填写的内容"))
+        cdr.switch_to_default_content()#跳出frame
+        
+        #上传一张图片
+        cdr.find_element_by_xpath("//div[@id='edui61_body']/div[1]").click()#查找上传图片的按钮
+        cdr.switch_to_frame("edui57_iframe")
+        
+        cdr.implicitly_wait(3)
+        cdr.find_element_by_name("flash-upload").click()
+        
+        #调用 autoit 这个exe文件，必须安装autoit软件，并且在C盘路径下有long.jpg 这个图片 
+        os.system("pyUpload.exe")
+        time.sleep(6)#上传图片后一定要sleep()
+        cdr.switch_to_default_content()#跳出frame
+        
+        #得到 这个里面的<div class="edui-box euui-label">>确认</div>  确认 两个字的用法
+        print cdr.find_element_by_xpath("//div[@id='edui59_body']/div[2]").text 
+        #点击确定按钮，将图片加载到作业内容里
+        cdr.find_element_by_xpath("//div[@id='edui59_body']/div[2]").click()
+        time.sleep(2)
+        
+        #在空间中发布
+        cdr.find_element_by_id("qPubBtnSubmit").click()
+        #cdr.find_element_by_id("qPubBtnSubmit").send_keys("\n")直接发送一个回车也可以
+        
+        #点击标题进入作业详细页面
+        cdr.find_element_by_partial_link_text(unicode("这是脚本标题")).click()
+        #cdr.find_element_by_xpath("//div[@class='feed-main-box']/div[1]/a")
+
+    def test_LogOut(self):
+        cdr=self.cdr
+        #以下是将浏览器的handle存到数组里，然后逐一关闭
+        h=[]
+        for handle in cdr.window_handles:
+            h.append(handle)
+        print h
+        cdr.switch_to_window(h[2])
+        cdr.close()
+        time.sleep(1)
+        
+        cdr.switch_to_window(h[1])
+        cdr.close()
+        time.sleep(1)
+        
+        cdr.switch_to_window(h[0])
+        action = ActionChains(cdr)#建立鼠标事件
+        action.move_to_element(cdr.find_element_by_id('user')).perform()#鼠标移动到退出的箭头上
+        cdr.find_element_by_link_text(unicode("退出")).click()
+        
+        time.sleep(1)
+        cdr.quit()#退出浏览器
+    def tearDown(self):
+        pass
+
+if __name__=="__main__":
+    
+    t=Test()
+    t.setUp()
+    t.test_Logo()
+    t.test_Login()
+    t.test_Search()
+    t.test_LogOut()
+    
+    
+    '''
+    #下面是生产测试报告
+    testsuite=unittest.TestSuite()
+    #testsuite.addTest(Test("setUp"))
+    testsuite.addTest(Test("test_Logo"))
+    testsuite.addTest(Test("test_Login"))
+    testsuite.addTest(Test("test_Search"))
+    testsuite.addTest(Test("test_LogOut"))
+    
+    filename="D:\\Program Files\\kuaipan\\PythonWorkSpace\\PythonAutoTestPro\\src\\opentest\\something\\report.html"
+    fp=file(filename,'w')
+    runner=HTMLTestRunner.HTMLTestRunner(stream=fp,title="Result",description="TestReport")
+    runner.run(testsuite)
+    '''
+    #unittest.main() #直接写这个代码也行

@@ -1,0 +1,58 @@
+#-*-coding:utf-8-*-
+'''
+script 编写的是脚本
+
+本模块是 测试脚本,并且建立该 module 时必须以test开头，如 textxx.py
+
+类中用setUp做初始化，用tearDown做清理,主要用到的函数是：
+self.fail([msg])会无条件的导致测试失败，不推荐使用。
+assert "ss" in "asdfsssff" #判断是否成立
+self.assertEqual(value1, value2, failedinfo) # 断言value1 == value2
+self.assertTrue(表达式, failedinfo) # 断言value为真
+self.assertFalse(表达式, failedinfo) # 断言value为假
+'''
+import unittest,script
+import HTMLTestRunner
+class mytest(unittest.TestCase):
+    def setUP(self):#可以去掉
+        pass
+    def tesrDown(self):#可以去掉
+        pass
+    
+    #下面是测试用例
+    def test_BeginANDend(self):#A中以B开头，以C结尾的所有字符串 的用例
+        A=["BsC","BafaC","dff"]
+        assert "BsC" in script.myscript().foo(A, "B", "C")
+        assert "BafaC" in script.myscript().foo(A, "B", "C")
+        
+    def test_MaxN(self):#验证 数组A，连续3个数之和最大为11 
+        A = [2, -3, 5, 0, 6, -4]
+        num=script.myscript().maxNum(A)
+        self.assertEqual(num,12, "最大值是11")
+        #self.assertEqual(num,12, "最大值是11")#上面那个是对的
+    
+def suite():
+    
+    suite = unittest.TestSuite()
+    suite.addTest(mytest("test_BeginANDend"))
+    suite.addTest(mytest("test_MaxN"))
+    return suite
+
+def test_HTMLTestRunner():
+    filename="D:\\Program Files\\kuaipan\\PythonWorkSpace\\PythonAutoTestPro\\src\\opentest\\something\\report.html"
+    fp=file(filename,'w')
+    runner=HTMLTestRunner.HTMLTestRunner(stream=fp,title="Result",description="TestReport")
+    runner.run(alltests)
+    
+if __name__ == "__main__":
+    #unittest.TextTestRunner().run(suite())
+    
+    #下面这个是生成一个测试报告，可以将上面的这一行注释掉看一下
+    
+    alltests=unittest.TestSuite()
+    alltests.addTest(mytest("test_BeginANDend"))
+    alltests.addTest(mytest("test_MaxN"))
+    
+    test_HTMLTestRunner()
+    
+    
