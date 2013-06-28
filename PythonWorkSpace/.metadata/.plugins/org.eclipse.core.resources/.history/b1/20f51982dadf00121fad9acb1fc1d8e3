@@ -1,0 +1,36 @@
+
+
+from selenium import webdriver
+import unittest
+import time
+import HTMLTestRunner
+
+
+
+
+class test_class(unittest.TestCase):
+    def setUp(self):
+        self.verificationErrors=[]
+        self.test=webdriver.Chrome()
+        self.url="http://www.baidu.com"
+    def test_login(self):
+        pa=self.test
+        pa.get(self.url)
+        
+        pa.find_element_by_id("lb").click()
+        user=pa.find_element_by_id("TANGRAM__PSP_10__userName")
+        user.send_keys("xlmysjz@126.com")
+        passwd=pa.find_element_by_name("password")
+        passwd.send_keys('xl123456')
+        pa.find_element_by_id("TANGRAM__PSP_10__submit").click()
+        time.sleep(10)
+        
+    def tearDown(self):
+        pass
+if __name__=="__main__":
+    testsuite=unittest.TestSuite()
+    testsuite.addTest(test_class("test_login"))
+    filename="D:\\Program Files\\kuaipan\\PythonWorkSpace\\PythonAutoTestPro\\src\\opentest\\something\\report.html"
+    fp=file(filename,'w')
+    runner=HTMLTestRunner.HTMLTestRunner(stream=fp,title='Result',description='Test_Report')
+    runner.run(testsuite)
