@@ -48,13 +48,16 @@ class selectCheckBox(unittest.TestCase):
         #全部选中 topka-个人设置-专家达人认证-擅长领域里的 checkbox
         #cdr.find_element_by_xpath("//li[@id='goodat_area']/input[1]").click()
         
-        #下面这两个是等价的
-        [cdr.find_element_by_xpath("//li[@id='goodat_area']/input"+'['+str(i)+']').click() for i in range(1,9)]
+        #使用加复数的 find_elements_by_xpath 全部点击一遍 checkbox，
+        for cli in cdr.find_elements_by_xpath("//input[contains(@type,'checkbox')]"):#这个也行"//input[@type='checkbox']"
+            cli.click()
+        
+        #下面是两种方法，基本上下面这两个方法时等价的
+        #[cdr.find_element_by_xpath("//li[@id='goodat_area']/input"+'['+str(i)+']').click() for i in range(1,9)]
         '''
         for i in range(1,9):
             cdr.find_element_by_xpath("//li[@id='goodat_area']/input"+'['+str(i)+']').click()
         '''
-        cdr.find_elements_by_xpath #看看能不能全部取到下面的 checkbox
         time.sleep(2)
         #鼠标移动到 头像旁边的下落箭头上
         action=ActionChains(cdr)
