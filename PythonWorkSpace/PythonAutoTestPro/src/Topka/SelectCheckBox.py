@@ -67,8 +67,8 @@ class selectCheckBox(unittest.TestCase):
         
         #最后退出浏览器
         cdr.quit()
-        #D:\Program Files\kuaipan\Git\webdriver_guide\09\find_elements.md
-        #Map log= new hashmap();看目录下的那个图片和ppt
+        
+
 if __name__ == "__main__":
     test=unittest.TestSuite()
     test.addTest(selectCheckBox("test_Info"))
