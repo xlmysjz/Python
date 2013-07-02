@@ -1,0 +1,17 @@
+'''
+Created on 2013-7-2
+
+@author: Administrator
+'''
+from selenium import webdriver
+class createActivity():
+    def setUp(self):
+        cdr=webdriver.Chrome()
+        cdr.implicitly_wait(3)
+        URL="http://www.topka.cn"
+    def test_info(self):
+        cdr.
+        
+if __name__ =="__main__":
+    t=createActivity()
+    t.setUp()

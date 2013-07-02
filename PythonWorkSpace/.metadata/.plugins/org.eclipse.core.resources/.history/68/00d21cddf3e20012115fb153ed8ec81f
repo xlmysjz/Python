@@ -1,0 +1,1123 @@
+#-*-coding:utf-8-*-
+import math
+from math import sqrt
+import copy
+import tt
+import time,datetime
+import random
+import re
+
+print datetime.now()
+'''
+print math.floor(32.9) 
+print int(math.floor(32.9))
+print sqrt(9)#最上面加入 from math import sqrt 后就不用math.sqrt(x),而直接用 sqrt(x)
+
+print "let's go," "ok"
+
+temp=42
+print"this is "+repr(temp)#repr(x)是将值转化为字符串，也可以使用str(x)
+
+name=raw_input("what's you name:")
+print "hello "+name+"!"
+'''
+
+'''
+print "hello\nword"#换行符\n
+print r"c:\Program Files\name" #如果使用 r 在字符串的最后面不能输入 \,例如  r"c:\Program Files\name\" 是错误的
+print "c:\\Program Files\\name\\"
+print round(5.34,1)#保留一位小数
+'''
+
+'''
+#冒泡排序1
+num=[34,12,8,21,55,-1]
+for i in range(len(num)):
+    for j in range(len(num)-i-1):
+        if num[j]>num[j+1]:
+            num[j],num[j+1]=num[j+1],num[j]
+    print num
+#冒泡排序2
+def maoPao(num):
+    for i in range(len(num)-1):
+        for j in range(len(num)-1):
+            if num[j]>num[j+1]:
+                tem=num[j]
+                num[j]=num[j+1]
+                num[j+1]=tem
+    print num
+print"-"*20
+num=[34,12,8,21,55,-1,10]
+maoPao(num)
+'''
+
+'''
+greet="hello"
+print greet[0]
+print greet[-4]
+
+inp=raw_input("请输入数字，他会打印出第四个值")[3]
+print inp
+'''
+
+'''#这个是为了 打印出相应的 年 月 日
+months=["january","february","march","april","may","june","july","august","september","october",
+        "november","december"]
+endings=["st","nd","rd"]+17*["th"]+["st","nd","rd"]+7*["th"]+["st"]#这个只是为了写上天的后缀 是st nd rd th
+
+year=raw_input("Year:")
+month=raw_input("month(1-12):")
+day=raw_input("day(1-31):")
+
+month_number=int(month)
+day_number=int(day)
+
+#要将月份和天数减一，以获取正确的索引
+month_name=months[month_number-1]
+ordinal=day+endings[day_number-1]
+
+print month_name+" "+ordinal+", "+year
+'''
+
+#分片
+'''
+t=[1,2, 3, 4, 5, 6, 7, 8, 9, 10]
+print t[3:9]
+print t[9:4:-1]#如果有负数作为 步长，则为从大到小 写 索引
+print t[5::-1]#如果有负数作为 步长，则为从大到小 写 索引
+print t[:5:-1]#如果有负数作为 步长，则为从大到小 写 索引
+print t[9:3:-2]#步长为2时
+print t[-9:6]#最左边索引的 元素 必须 比右边的 元素 出现的早 才可以打印
+'''
+
+#len min max
+'''
+num=[100,30,66,23,100]
+print len(num)
+print min(num)
+print max(num)
+
+name=["a","b","c","d"]
+del name[2] #删除列表中的元素
+print name
+'''
+'''
+#分片
+name=list("perll")#将序列转换成列表
+print name #打印出来后是 ['p', 'e', 'r', 'l']
+name[2:]= list("ar")
+print name
+
+num=[1,5]
+num[1:1]=[2,3,4]#不替换任何元素的情况下插入新的元素
+print num
+
+num=[1,2,3,4,5,6]
+num[1:4]=[]#赋值删除
+print num
+'''
+'''
+#append()
+num=[1,2]
+num.append(3) #调用append()方法增加列表里的元素
+print num
+
+a=[1,2,1,1,2,3,2,3]
+print a.count(1)#统计1出现的次数
+
+#extend()
+a=[1,2,3]
+b=[4,5,6]
+a.extend(b) #向a列表中一次增加b列表中的元素
+print a
+print b
+
+#insert
+num=[1,2,3,4]
+num.insert(2, "name")#只是插入一个元素，不会删除里面的元素
+print num
+
+#pop
+a=["a","b","c","d"]
+a.pop(1)#移除下标是1的元素
+print a
+print a.pop()#，如果不写下标 默认移除最后一个,并将移除的那个元素返回
+print a
+
+#remove
+num=["to","bo","co","do"]
+num.remove("to")#直接移除某个元素
+print num
+
+#reverse反转
+a=["ao","bo","co"]
+a.reverse()#将元素反向存放
+print a
+'''
+'''
+#sort()排序
+num=[3,1,3,4,43,23,25]
+num.sort()#对num列表进行排序
+print num
+
+num=[100,90,30,40,80,20,10]
+a=num[:]#将num列表拷贝给a
+a.sort()#在对a进行排序，这样可以不改变原数组num列表的值
+print num
+print a
+
+number=[5,3,8,9]
+number.sort(cmp)
+print number
+
+num=[5,2,9,7,10]
+num.sort(reverse=True)#reverse=True是按照倒序排列， reverse=False是按照正序排列
+print num
+
+#sorted 获取已排序的列表副本的方法
+x=[2,1,67,5,4,7]
+y=sorted(x)
+print x
+print y
+
+'''
+
+'''
+#2.4元组
+(42,)#如果元组里只有一个值，也必须有逗号
+
+#tuple是将一个序列转换为元组，如果是元组，照原样返回
+print tuple([1,2,3])
+print tuple(("a","b","c"))
+x=(1,2,3)
+print x[1]
+print list(x)
+'''
+'''
+#3.4
+#find
+title="hellor word"
+print title.find("wo")#返回最左端的下标
+print title.find("a")#没找到，返回-1
+print "h"in title# in 只能 判断单个字符 find可以查找多个字符
+print title.find("ll",1)#提供从起始点1开始向后查找
+print title.find("or",5,10)#提供从 起始点5,结束点10 查找
+'''
+'''
+#join 队列中添加元素,添加的队列元素都必须是字符串
+a=[1,2,3,4]
+b="+"
+b.join(a) #这是个错误的 添加
+
+a=["a","b","c"]
+b="+"
+print b.join(a)#打印后是：a+b+c
+
+dir="","usr","bin","env"
+print"/".join(dir) #打印后是：/usr/bin/env
+
+
+#lower 将大写转换为小写
+title="This My name"
+print title.lower()
+
+myname="LiLei"
+name=["lili","lilei","Tom"]
+if myname.lower() in name: #用这个函数可以变形 不区分大小写 的方法
+    print "I found"
+
+#replace 字符串的所有匹配项均被替换之后得到的字符串
+name="this is lilei"
+print name.replace("lilei","Tom")
+
+#split将字符串分割为 序列
+sentence="this/is/my/name"
+print sentence.split("/")
+'''
+'''
+#strip 去除字符串两端的 空格
+sentence="  this  my name  "
+print sentence.strip()
+
+myname="lili  "#名字后面有空格
+name=["lili","lilei","Tom"]
+if myname.strip() in name: #去掉名字后面的空格，查找是否在 name 序列里
+    print "I found "
+    
+a="Tthis is ListT"
+print a.strip("T")#只能去掉两侧的 T
+'''
+'''
+#字典
+phonebook={"Alice":"12","lilei":"34","Tom":"56"}
+print phonebook["Tom"]
+
+item=[("name","gumby"),("age",30)]
+d=dict(item)#dict()建立字典
+print d
+
+d=dict(name="gub",age=30)#或者这种方法
+print d
+
+dic={"name":"lilei","age":30,"sex":"nv"}
+print len(dic)
+print dic["name"]#打印字典中 name 的 值
+dic["sex"]="nan"#将值 nan 关联到 sex键上
+print dic
+
+del dic["age"]#删除键为 age 的项
+print dic
+
+print "name" in dic #检查d中是否有 name 这个键
+
+x={}
+x["ID"]=50 #将 值50 关联到 键 上
+print x
+'''
+
+'''
+print"---------字体的格式化字符-------------"
+template="<html> \
+        <head><title>%(title)s</title></head> \
+        <body> \
+        <h1>%(title)s</h1> \
+        <p>%(text)s</p> \
+        </body>"
+data={"title":"My Home Page","text":"Welcome to my home page"}
+print template % data
+
+print"\n----这是另一种写法------"
+data={"title":"My Home Page","text":"Welcome to my home page"}
+print "这个title是 %(title)s" %data
+
+data={"title":"My Home Page","text":"Welcome to my home page"}
+print data.clear()#清楚字典里的所有项
+
+'''
+'''
+#deepcopy深度拷贝
+d={}
+d["names"]=["Alfred","Bertrand"]
+print d
+c=d.copy()#浅拷贝  浅拷贝 只拷贝父对象，不会拷贝对象的内部的子对象
+dc=copy.deepcopy(d)#深度拷贝   深拷贝 拷贝对象及其子对象
+
+d["names"].append("haha")
+print d
+print c
+print dc
+
+
+#字典中的get方法
+data={"title":"My Home Page","text":"Welcome to my home page"}
+print data.get("title")#当键有时 ，打印出 其职
+print data.get("k")#当键没有时 ，打印出None
+print data.get("k","hh")#如果没有键，可以打印给定的信息
+
+#字典中的items方法
+data={"title":"My Home Page","text":"Welcome to my home page"}
+print data.items()#该方法将字典以列表方式返回 [('text', 'Welcome to my home page'), ('title', 'My Home Page')]
+
+it=data.iteritems()#该方法与items()类似，不过返回的是迭代器对象而不是列表
+print list(it)
+
+d={"x":1,"y":2}
+d.pop("y")#移除字典里的键-值
+print d
+
+d={"x":1,"y":2,"z":3}
+print d.popitem()#随机移除 键-值,并将移除的那个键-值 打印
+print d
+'''
+'''
+#字典里的setdefault  
+data={"title":"My Home Page","text":"Welcome to my home page"}
+print data.setdefault("title")# 获得与给定键相关联的值
+
+data.setdefault("name","t")#在不含有给定键的情况下设定相应的 值
+print data
+
+#update 利用一个字典更新另一个字典
+d={"x":1}
+e={"y":2}
+e.update(d)
+print d
+print e
+
+
+#values
+d={"x":1,"y":2,"z":3}
+print d.values()#打印字典里的 值
+print list(d.itervalues())#打印字典里的 值 的迭代器
+'''
+#第五章
+'''
+x=2
+y=3
+x,y=y,x#直接交换x y的值
+print x
+print y
+
+#if else elif 
+num=raw_input("Enter a num:")
+num=int(num) #raw_input()是以字符串的方式读取的，这里要转换成 int,这里可以直接用 num=input("Enter a num:")，就不用转换了
+if num<0:
+    print"输入的数字小于0"
+elif 0<num<100:
+    print"输入的数字在100以内"
+else:
+    print"这是你输入的数字:",num
+
+for x in range(99,0,-1):
+    root=sqrt(x)
+    if root==int(root):
+        print"100最大的平方数是:",x
+        break
+else:
+    print"Did't find it"
+'''
+'''
+print [x*x for x in range(10)]#列表推导式，轻量级循环
+print [x*x for x in range(10) if x%3==0]#当数字可以整除3时，求那几个数的 平方数
+print [(x,y)for x in range(3) for y in range(3)]#等同于下面的这几句
+result=[]
+for x in range(3):
+    for y in range(3):
+        result.append((x,y))
+print resultresult=[]
+for x in range(3):
+    for y in range(3):
+        result.append((x,y))
+print result
+
+name=raw_input("输入名称:")
+if name=="lili":
+    print"lili"
+elif name=="小白":
+    pass#python中空代码是不允许的，所以这里输入一个 pass
+else:
+    print"haha"
+'''
+'''
+x=["hello","word"]
+y=x
+y[1]="python"#一些值的改变
+print x
+print y
+
+#exec 执行一个字符串的语句
+score={}
+exec"sqrt=1"in score
+print sqrt(4)
+
+#eval
+print eval(raw_input("输入一个计算式："))#求和，输入如2+5  
+
+score={}
+exec "x=2"in score
+print eval("x*x",score) #计算一个表达式
+'''
+
+#第6章
+'''
+fit=[0,1]
+for x in range(8):
+    fit.append(fit[-2]+fit[-1])
+print fit
+'''
+
+
+#print tt.fitt(10)#这里导入的是tt.py那个modle
+'''
+def try_to_change(n):
+    n="Mr.Gumby"
+name="Mrs Entity"
+try_to_change(name)#n获得了新值，但是没有影响到name变量的值
+print name
+
+def change(n):
+    n[0]="Mr Gumby"
+names=["Mrs.Entity","Mrs white"]
+change(names)#调用参数后，names列表里的值改变了
+print names
+'''
+#6.4.2 为什么我想要修改参数
+'''
+storage={}
+storage["first"]={}
+storage["middle"]={}
+storage["last"]={}
+print storage #{'middle': {}, 'last': {}, 'first': {}}
+
+me="Magnus Lie Hetland"
+storage["first"]["Magnus"]=[me]
+storage["middle"]["Lie"]=[me]
+storage["last"]["Hetland"]=[me]
+print storage #{'middle': {'Lie': ['Magnus Lie Hetland']}, 'last': {'Hetland': ['Magnus Lie Hetland']}, 'first': {'Magnus': ['Magnus Lie Hetland']}}
+
+my_sister="Anne Lie Hetland"
+storage["first"].setdefault("Ann",[]).append(my_sister)
+storage["middle"].setdefault("Lie",[]).append(my_sister)
+storage["last"].setdefault("Hetland",[]).append(my_sister)
+print storage
+print storage["first"]["Ann"]
+print storage["middle"]["Lie"]
+
+print "---------下面是上面的封装------------"
+def init(data):
+    data["first"]={}
+    data["middle"]={}
+    data["last"]={}
+
+storage={}
+init(storage)
+print storage #{'middle': {}, 'last': {}, 'first': {}}
+
+def lookup(data,lable,name):
+    return data[lable].setdefault("lie","[Magnus Lie Hetland]")
+print lookup(storage,"middle","Lie")
+print storage
+'''
+'''
+def print_params(*params):# *params的意思是提供多参数
+    print params
+print_params("a","b","c") #('a', 'b', 'c')打印出来的是元组
+
+def print_params2(title,*params):
+    print title,params
+print_params2("myname",1,2,3) #打印的是 myname (1, 2, 3)
+
+def print_params3(**params): #处理关键字参数
+    print params
+print_params3(x=1,y=2,z=3) #打印出来的是 字典 {'y': 2, 'x': 1, 'z': 3}
+
+def print_params4(x,y,z=3,*pos,**keypar): #综合到一起
+    print x,y,z
+    print pos
+    print keypar
+print_params4(1,2,3,4,5,6,fool=1,bar=2)
+
+print"----------一个例子-----------"
+def init(data):
+    data["first"]={}
+    data["middle"]={}
+    data["last"]={}
+    
+def lookup(data,lable,name):
+    return data[lable].get(name)
+
+def store(data,*full_names):
+    for full_name in full_names:
+        names=full_name.split()
+        if len(names)==2:
+            names.insert(1,"")
+        labels="first","middle","last"
+        for label ,name in zip(labels,names):
+            people=lookup(data,label,name)
+            if people:
+                people.append(full_name)
+            else:
+                data[label][name]=[full_name]
+d={}
+init(d)
+store(d,"a","c")
+lookup(d,"last","ann")
+print d
+'''
+'''#一个练习
+def s_with(**p):
+    print p["name"],"is",p["age"]
+x={"name":"lili","age":40}
+s_with(**x)
+'''
+'''
+def story(**kwy): #第一个方法
+    print"There is a %(L)s,named %(N)s" %kwy
+
+def power(x,y,*other): #第二个方法
+    if other:
+        print"多出的参数是：",other
+    return pow(x,y)
+def interval(start,stop=None,step=1): #第三个方法
+    if stop is None: #判断如果第二个参数如果为空
+        start,stop=0,start #将start置为0，stop为输入的那个数值
+    result=[]
+    while start<stop:
+        result.append(start)
+        start+=step
+    return result
+
+story(L="language",N="python") #第一个方法,已默认值的方式传值
+params={"L":"object","N":"door"}
+story(**params) #第一个方法，以字典的形式传值
+
+p=(5,)*2 #第二个方法，如果打印出p后显示的是(5,5)
+print power(*p)
+print power(x=2,y=3)
+print power(5,2)
+print power(3,3,"hello") #如果有other的情况下 
+
+print interval(10) #如果 stop=None 的情况
+print interval(2,6)#步长是 step=1
+print interval(3,12,4) #第三个方法 步长是 step=4
+
+print power(*interval(3,7))
+'''
+'''
+def digui(n): #递归
+    if n==1:
+        return 1
+    else:
+        return n*digui(n-1)
+print digui(3)
+
+#map 将序列中的元素全部传递给一个函数
+print map(str,list("123456"))
+
+g=lambda x:x**2 #lambda函数
+print g(3)
+print map(lambda x : x**2,range(5))
+'''
+#第七章
+'''
+#类
+class Person:
+    def setName(self,name):
+        self.name=name
+    def getName(self):
+        return self.name
+    def greet(self):
+        print "Hello Word,I am %s." %self.name
+foo=Person()
+bar=Person()
+foo.setName("H")
+bar.setName("L")
+
+foo.greet()
+bar.greet()
+
+foo.name="K"
+print foo.getName()
+
+
+class Secretive:
+    def __ina(self): #加上__ 是表示在类内部可以使用，类的外部无法使用
+        print"you can't see me"
+    def acc(self):
+        print"see me"
+        self.__ina()#在类内部可以使用这个方法
+s=Secretive()
+#s.__ina() #这个是错误的,因为加上__后 这个方法只能在类的内容使用
+s.acc()
+'''
+'''
+class MemberCounter:
+    member=0
+    def init(self):
+        MemberCounter.member +=1
+        
+m1=MemberCounter()
+m1.init()
+print MemberCounter.member
+
+m2=MemberCounter()
+m2.init()
+print MemberCounter.member
+
+#指定超类
+class Filter:
+    def init(self):
+        self.blocked=[]
+    def filter(self,sequence):
+        return[x for x in sequence if x not in self.blocked]
+class SPAM(Filter): #这就指定了超类，SPAM是Filter的一个子类
+    def init(self): #重写超类中的init方法
+        self.blocked=["SPAM"]
+s=SPAM()
+s.init()
+print s.filter(["SPAM","egg","SPAM","apple"])#根据方法，过滤了SPAM
+
+class Cla:
+    def cla(self,exp):
+        self.value=eval(exp)
+class Talker:
+    def talker(self):
+        print "The value is: ",self.value
+
+class TalkerCla(Cla,Talker): #指定了这两个超类,成为多重继承
+    pass #什么也没干，直接过
+tc=TalkerCla() 
+tc.cla("1+2*4") #子类什么都没干，直接调用父类的方法
+tc.talker()
+'''
+#第8章，异常
+'''
+try:
+    x=int(raw_input("first num:"))
+    y=int(raw_input("second num:"))
+    print x/y
+except ZeroDivisionError:
+    print"The second num can't be Zero"
+
+
+class Muff: #当为False屏蔽打印，当为True，给出要打印的信息，以及可以有多个 except
+    muf=False
+    def cal(self,exp):
+        try:
+            return eval(exp)
+        except ZeroDivisionError:
+            if self.muf: 
+                print"num can't be Zero"
+            else:
+                raise Exception("something is wrong")
+        except TypeError:
+            print"wasn't a number"
+m=Muff()
+print m.cal("10/2")
+m.muf=True
+m.cal("10/0")
+m.cal("10/'a'")
+
+#给 try except 加个 else 
+while True: #只要有错误就一直提示输入，如果输入的正确，则退出
+    try:
+        x=int(raw_input("first num:"))
+        y=int(raw_input("second num:"))
+        value=x/y
+        print "x/y is:",value
+    except Exception,e:
+        print "Invalid input",e
+        print "Please try again"
+    else:
+        break
+'''   
+#第9章
+'''
+class FooBar:
+    def __init__(self): #构造函数 
+        self.some=42
+    def name(self):
+        self.m="my"
+f=FooBar()
+print f.some
+
+class FooBar1:
+    def __init__(self,value=42): #构造函数中添加参数
+        self.some1=value
+f1=FooBar1("this is argument")
+print f1.some1
+'''
+
+'''
+#重写一般的方法和特殊的构造方法
+class Bird:
+    def __init__(self):
+        self.hungry=True
+    def eat(self):
+        if self.hungry:
+            print"I an full"
+            self.hungry=False
+        else:
+            print"No,Thinks"
+class SongBird(Bird): #指定超类
+    def __init__(self):
+        self.sound="Squawk"
+    def sing(self):
+        print self.sound
+sBird=SongBird()
+sBird.sing()
+
+SongBird()指定了Bird 为超类，如果直接调用父类里的方法会报错，因为 SongBird()中 构造方法被重写，但新的构造方法没有任何关于初始化
+hungry特性的代码,见下面代码
+
+#sBird.eat()#这个是错误的
+#下面是解决上面这个错误的两种方法
+class Bird1:
+    def __init__(self):
+        self.hungry=True
+    def eat(self):
+        if self.hungry:
+            print"I an full"
+            self.hungry=False
+        else:
+            print"No,Thinks"
+class SongBird1(Bird1): #指定超类
+    def __init__(self):
+        Bird1.__init__(self) #加上这一句，是因为调用一个实例的方法时，该方法的self参数会被自动绑定到实例上
+        self.sound="Squawk"
+    def sing(self):
+        print self.sound
+sBird1=SongBird1()
+sBird1.sing()
+sBird1.eat()#这回就没错了
+sBird1.eat()#这回就没错了
+
+#使用 super()方法
+class Bird2(object): #之类使用super时，这里要加上object
+    def __init__(self):
+        self.hungry=True
+    def eat(self):
+        if self.hungry:
+            print"I an full"
+            self.hungry=False
+        else:
+            print"No,Thinks"
+class SongBird2(Bird2): 
+    def __init__(self):
+        super(SongBird2,self).__init__() #super方法
+        self.sound="Squawk"
+    def sing(self):
+        print self.sound
+sBird2=SongBird2()
+sBird2.sing()
+sBird2.eat()#这回就没错了
+sBird2.eat()#这回就没错了
+'''
+'''
+class Rect:
+    def __init__(self):
+        self.width=0
+        self.height=0
+    def __setattr__(self,name,value):
+        if name=="size":
+            self.height,self.width=value
+        else:
+            self.__dict__[name]=value
+    def __getattr__(self,name):
+        if name=="size":
+            return self.height,self.width
+        else:
+            raise AttributeError
+r=Rect()
+print r.width,r.height
+r.__setattr__("size", "na")
+print r.width,r.height
+'''
+#迭代
+'''
+lst=range(3)
+it = iter(lst)
+print it.next() #或者是 next(it)效果是一样的
+print it.next()
+
+try:
+    while True:
+        var=it.next()
+        print var
+except Exception, e:
+    print e
+    
+    
+it=iter([1,2,3])#一个例子
+print it.next()
+
+#一个迭代的例子
+class Fibs:
+    def __init__(self):
+        self.a=0
+        self.b=1
+    def next(self):
+        self.a,self.b=self.b,self.a+self.b
+        
+        print self.a
+        print self.b
+        
+        return self.a
+    def __iter__(self):
+        return self
+fibs=Fibs()
+for f in fibs:
+    if f>3:
+        print "循环后的值为:",f
+        break
+
+#生成器 yield
+nested=[[1,2],[3,4],[5,6]]
+def Flatten(nested):
+    for sublist in nested:
+        for ele in sublist:
+            yield ele  #任何包含yield语句的函数成为 生成器
+nested1=[[1,2],[3,4],[5,6]]
+for num in Flatten(nested1):
+    print num
+print list(Flatten(nested1))#生产一个序列
+
+
+# 从178-183 八皇后问题 没看懂
+'''
+'''
+#第10章
+print time.localtime()
+print random.random()#返回0-1的值
+print random.randrange(1,10) #从给定的范围内随机取值
+print random.randrange(1,20,2) #获得20以内的正 奇数
+
+some="alpha,beta,,,,gamma,delta"
+print re.split("[,]+", some) #根据匹配项分割字符串
+
+pat="[a-zA-Z]+"
+text="asdf...asdfdxzxcvm,"
+print re.findall(pat,text)#在字符串中查找说有的单词
+
+pat=r"[.?\-',]+"
+text=",./jlk?lk;\l"
+print re.findall(pat,text)#查找标点符号
+
+import fileinput #能遍历文本中的所有行
+for line in fileinput.input(inplace=True):
+    line=line.rstrip #去除两端的空格
+    num=fileinput.lineno() #返回当前累计的行数
+    print"%-40s # %2i" %(line,num)
+'''
+
+#第11章
+'''
+f=open(r"./something/test.txt","w") #向文件中进行 写 的操作，   ./test.txt 是说在这个项目的跟目录下
+f.write("hello\n") 
+f.write("ss\n")
+f.write("word1\n")
+f.close()
+
+f=open(r"./something/test.txt","r")# 从文件中进行 读 的操作
+print f.read()#读取整个文件
+#print f.read(5)#读4个字符
+f.close
+
+print"-----------"
+f=open(r"./something/test.txt","r")# 从文件中进行 读 的操作
+#print f.readline()#读取一行
+for line in f.readlines():#f.readlines()每一行都 读取，   f.readline()只读取一行
+    print line
+
+f.close
+
+print"-----------" #修改某一行的信息
+f=open(r"./something/test.txt","r")# 从文件中进行 读 的操作
+re=f.readlines()
+f.close()
+re[1]="WW\n"#将下标为里的字体信息修改为 WW
+
+
+f=open(r"./something/test.txt","w")
+f.writelines(re)#向 文件中写入
+f.close()
+
+f=open(r"./something/test.txt","r")
+print f.read()
+'''
+
+#对文件内容进行迭代
+def process(string):
+    print string
+'''
+f=open(r"./something/mytext.txt") #打印出每个字符的显示
+char=f.read(1) 
+while char:
+    process(char)
+    char=f.read(1)
+f.close()
+
+c=[]
+f=open(r"./something/mytext.txt") 
+for char in f.read():
+    c.append(char)
+print len(c)  #看看这个文件里有多少字符
+f.close()
+
+f=open(r"./something/mytext.txt") 
+for line in f.readlines():
+    process(line)
+f.close()
+
+lines=list(open(r"./something/mytext.txt")) #将文件里的信息添加到 序列
+print lines
+'''
+#第12章GUI
+'''
+安装wxPython2.8-win32-unicode-2.8.12.1-py27时
+要在  windows->Preferences->PyDev->Interpreter - Python-Libraries里添加
+Python27\Lib\site-packages\wx-2.8-msw-unicode 目录再强制编译(Apply)即可，一定要点击Apply，ok后重启eclipse就可以了
+'''
+'''
+import wx
+def load(event):#小的输入框，也就是点击【open】按钮
+    file=open(filename.GetValue())
+    contents.SetValue(file.read())
+    file.close()
+def save(event):
+    file=open(filename.GetValue(),"w")
+    file.write(contents.GetValue())
+    file.close()
+app=wx.App()
+win=wx.Frame(None,title="ok python",size=(410,335))
+bkg=wx.Panel(win)
+
+loadbtn=wx.Button(bkg,label="Open")
+loadbtn.Bind(wx.EVT_BUTTON,load)#点击按钮后的处理函数
+    
+savebtn=wx.Button(bkg,label="Save")
+savebtn.Bind(wx.EVT_BUTTON,save)#点击按钮后的处理函数
+
+filename=wx.TextCtrl(bkg)
+contents=wx.TextCtrl(bkg,style=wx.TE_MULTILINE|wx.HSCROLL)
+
+hbox=wx.BoxSizer()
+hbox.Add(filename,proportion=1,flag=wx.EXPAND)
+hbox.Add(loadbtn,proportion=0,flag=wx.LEFT,border=5)
+hbox.Add(savebtn,proportion=0,flag=wx.LEFT,border=5)
+
+vbox=wx.BoxSizer(wx.VERTICAL)
+vbox.Add(hbox,proportion=0,flag=wx.EXPAND|wx.ALL,border=5)
+vbox.Add(contents,proportion=1,flag=wx.EXPAND|wx.LEFT|wx.BOTTOM|wx.RIGHT,border=5)
+
+bkg.SetSizer(vbox)
+win.Show()
+app.MainLoop()
+'''
+#第13章 我机器上的mysql name：MySQL，root密码：123456
+'''
+import MySQLdb 时提示：unresolved import:MYSQLdb
+需要给PyDev添加支持：
+打开：windows->Preferences->PyDev->Interpreter - Python
+在Forced Builtins下面手工添加 MySQLdb 字段 强制编译。
+Apply之后，可以看到 Libraries 下面添加了 MySQLdb的目录。如果没有，则手工在Libraries 
+下面添加MySQLdb的目录，再次强制编译(Apply),点击ok后重启
+'''
+'''
+import mysqldbtest
+mysqldbtest.createdb()#创建数据库
+mysqldbtest.operateDatabase()#向数据库里插入数据
+#看看这两个例子：http://www.cnblogs.com/rollenholt/archive/2012/05/29/2524327.html 
+#http://www.iteye.com/topic/573092
+'''
+#第14章 该看266了 现在先不注重socket，所以跳过这一章
+'''
+import socket
+#一个小型服务器
+s=socket.socket()
+host=socket.gethostname()
+print host #打印出自己的计算机的 host名称
+port=12345
+s.bind((host,port))
+s.listen(5)#只有一个参数，即服务器未处理的连接的长度（即允许排队等待的连接数目，这些连接在停止接收之前等待接收）
+while True:
+    c,addr=s.accept()#服务器端套接字开始监听后，它就可以接收客户端的连接。这个步骤用accpet方法来完成,第一个元素c是新的socket对象，服务器必须通过它与客户通信；第二个元素 addr是客户的Internet地址。
+    print"Got connecting from",addr
+    c.send("Thinking you for connecting")#可以使用字符串参数调用send以发送数据
+    c.close()
+
+#一个client
+s1=socket.socket()
+host1=socket.gethostname()
+port1=12345
+s1.connect((host1,port1))#客户端套接字使用connect方法连接到服务器
+print s1.recv(1024)#用一个所需的（最大）字节数做参数调用 recv来接收数据
+'''
+
+'''
+#打开远程文件
+from urllib import urlopen
+print urlopen("http://www.baidu.com")#包含一个连接到http://www.baidu.com网页的类文件对象
+print "--"*20
+#打开一个网友 获取所有的内容
+webpage=urlopen("http://www.baidu.com").read()
+print webpage
+
+print "--"*20
+#获取http头
+doc=urlopen("http://www.baidu.com")
+print doc.info()
+print "--"*20
+print doc.info().getheader("Content-Type")
+
+#获取远程文件
+import urllib
+#urlretrieve  下载文件，并在本地文件中存储一个文件的副本
+urllib.urlretrieve("http://www.baidu.com",r"./something/baidu_webpage.html")
+该看266了
+'''
+#第15章,这一章下面的程序看的不太懂
+'''
+from subprocess import Popen,PIPE
+text=open(r"./something/mxTidy.html").read()
+tidy=Popen("tidy",stdin=PIPE,stdout=PIPE,stderr=PIPE)
+tidy.stdin.write(text)
+tidy.stdin.close()
+
+print tidy.stdout.read() #这个程序报错
+'''
+'''
+#使用HTMLParser抓取屏幕信息
+from urllib import urlopen
+from HTMLParser import HTMLParser
+class Scraper(HTMLParser):
+    in_h3=False
+    in_link=False
+    def handle_starttag(self,tag,attrs):
+        attrs=dict(attrs)
+        if tag=="h3":
+            self.in_h3=True
+        if tag=="a" and "href" in attrs:
+            self.in_link=True
+            self.chunks=[]
+            self.url=attrs["href"]
+        print attrs
+    def handle_data(self,data):
+        if self.in_link:
+            self.chunks.append(data)
+    def handle_endtag(self,tag):
+        if tag=="h3":
+            self.in_h3=False
+        if tag=="a":
+            if self.in_h3 and self.in_link:
+                print"%s(%s)"%(''.join(self.chunks),self.url)
+            self.in_link=False
+text=urlopen("http://www.sina.com").read()
+parser=Scraper()
+parser.feed(text)#调用feed方法以运行这个解释器
+parser.close()
+'''
+#第16章
+#见 my_math module
+
+
+
+''' 
+#一个小算法
+#foo(A,B,C)
+#请找出A中以B开头，以C结尾的所有字符串
+
+def foo(A,B,C):
+    for x in A:
+        if x[0]==B and x[-1]==C:
+            print x
+A=["BsC","BafaC","dfg"]
+foo(A,"B","C")
+'''
+
+
+'''
+#编程实现对整数数组A，找出连续3个数之和最大的部分，并设计测试用例测试该函数。例如：
+#A = [2, -3, 5, 0, 6, -4]，最大值为11
+
+def maxNum(A):
+    temp=[]
+    for x in range(len(A)-2):
+        temp.append(A[x]+A[x+1]+A[x+2])
+    print max(temp)
+    
+A = [2, -3, 5, 0, 6, -4]
+#maxNum(A)
+'''
+'''
+#第17章
+#第21章 见Drawing module
+import Drawing
+Drawing.draw()
+print"已执行完毕，请到  根目录下查看 report.pdf"
+'''
+
+#第26章
+
+'''419'''
+'''420'''
