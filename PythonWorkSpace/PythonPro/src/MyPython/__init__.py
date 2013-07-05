@@ -1115,8 +1115,30 @@ import Drawing
 Drawing.draw()
 print"已执行完毕，请到  根目录下查看 report.pdf"
 '''
+'''
+#从这串字符中计算出每个字母出现的次数
+#第一种方法
+a='adfdafdafadafdafadfdafd*&^%$#@][p[om18}2vaa'
+d={}
+for su in a:
+    if su in d:
+        d[su]=d[su]+1
+    else:
+        d[su]=1
+for x in d:
+    print "统计为",x+":",d[x]
+print sorted(d.items(),key=lambda a:a[1],reverse = True)
+
+#第二种方法
+dir={}
+for x in a:
+    dir[x]=dir.get(x,0)+1#get()方法是：对字典dict 中的键key,返回它对应的值value，如果字典中不存在此键，则返回default 的值(注意，参数default 的默认值为None) 
+print dir
+'''
 
 #第26章
 
 '''419'''
 '''420'''
+
+
