@@ -55,11 +55,11 @@ class createActivity(unittest.TestCase):
         print t.strftime('%Y-%m-%d')
         
         time.sleep(3)
-        #活动开始时间设置，时间为2013-07-09 22时  55分
+        #活动开始时间设置，时间为2013-10-09 22时  55分
         #活动结束时间设置，时间为2013-12-20 06时 10分
         #活动报名截止设置，时间为2013-12-19 22时 50分
         js="document.getElementById('startDate').removeAttribute('readonly');"+\
-            "document.getElementById('startDate').setAttribute('value','2013-07-09');"+\
+            "document.getElementById('startDate').setAttribute('value','2013-10-09');"+\
             "document.getElementById('startTimeHours').removeAttribute('readonly');"+\
             unicode("document.getElementById('startTimeHours').setAttribute('value','22时');")+\
             "document.getElementById('startTimeMinutes').removeAttribute('readonly');"+\
@@ -101,13 +101,15 @@ if __name__ =="__main__":
     suite.test_ActivityPage()
     suite.tearDown()
     '''
-    #下面是 unittest以及生产测试报告
+    
+    #下面是 unittest以及生成测试报告
     suite=unittest.TestSuite()
     suite.addTest(createActivity("test_ActivityPage"))
     #unittest.TextTestRunner().run(suite)#如果不要报告，这里可以直接执行
     #下面是生成报告
-    filename=".\\createActivityReport.html"
+    filename=".\\something\\createActivityReport.html"
     fp=open(filename,"w")
     runner=HTMLTestRunner.HTMLTestRunner(stream=fp,title="createActivityReport",description="This is test_Activity")
     runner.run(suite)
+    
     
