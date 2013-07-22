@@ -1127,7 +1127,7 @@ for su in a:
         d[su]=1
 for x in d:
     print "统计为",x+":",d[x]
-print sorted(d.items(),key=lambda a:a[1],reverse = True)
+print sorted(d.items(),key=lambda a:a[1],reverse = True)#这个是对字典进行排序 a[1] 是按照value，a[0]是按照key
 
 #第二种方法
 dir={}
