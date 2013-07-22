@@ -1127,7 +1127,7 @@ for su in a:
         d[su]=1
 for x in d:
     print "统计为",x+":",d[x]
-print sorted(d.items(),key=lambda a:a[1],reverse = True)#这个是对字典进行排序 a[1] 是按照value，a[0]是按照key
+print sorted(d.items(),key=lambda a:a[1],reverse = True)#这个是对字典进行排序 a[1] 是按照value，a[0]是按照key,reverse = True是按照从大到小排序 ，如果 不加这个参数或reverse=False 是从小到大
 
 #第二种方法
 dir={}
@@ -1135,6 +1135,10 @@ for x in a:
     dir[x]=dir.get(x,0)+1#get()方法是：对字典dict 中的键key,返回它对应的值value，如果字典中不存在此键，则返回default 的值(注意，参数default 的默认值为None) 
 print dir
 '''
+
+#字典排序
+dict={"a":50,"b":32,"c":89}
+print sorted(dict.items(),key=lambda a:a[1],reverse=False)
 
 #第26章
 
