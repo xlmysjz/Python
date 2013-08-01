@@ -79,6 +79,10 @@ class createActivity(unittest.TestCase):
              
         #加上 unicode 是因为 value里有汉字  时 和 分
         
+        '''#这里是在JS里如何运用变量，注意datetime，这是个变量
+         String js="document.getElementById('process1Form:start');" +
+                    "document.getElementById('process1Form:start').setAttribute('value',"+datetime+");";
+         '''
         cdr.execute_script(js)
 
         time.sleep(6)
