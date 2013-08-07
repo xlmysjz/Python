@@ -1,0 +1,22 @@
+'''
+Created on 2013-8-5
+
+@author: Administrator
+'''
+import unittest,time
+class mytest(unittest.TestCase):
+    def setUP(self):
+        pass
+    def tesrDown(self):
+        pass
+    
+    #下面是测试用例
+    def test_BeginANDend(self):#A中以B开头，以C结尾的所有字符串 的用例
+        A=["BsC","BafaC","dff"]
+        assert "BsC" in script.myscript().foo(A, "B", "C")
+        assert "BafaC" in script.myscript().foo(A, "B", "C")
+        
+    def test_MaxN(self):#验证 数组A，连续3个数之和最大为11 
+        A = [2, -3, 5, 0, 6, -4]
+        num=script.myscript().maxNum(A)
+        self.assertEqual(num,11, "最大值是11")

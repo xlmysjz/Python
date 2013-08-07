@@ -2,75 +2,85 @@
 -- START DISKCACHE
 D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\.metadata\.plugins\org.eclipse.core.resources\.projects\PythonAutoTestPro\com.python.pydev.analysis\v1_indexcache
 .v1_indexcache
-Topka.CreateTopkaActivity|0|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\Topka\CreateTopkaActivity.py
-qunartest.qunar|0|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\qunartest\qunar.py
-myunittest.testmyscript|0|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\myunittest\testmyscript.py
-kingsoft.kingsoft_kuaipan|0|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\kingsoft\kingsoft_kuaipan.py
-myunittest.script|0|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\myunittest\script.py
-kingsoft.__init__|0|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\kingsoft\__init__.py
-Topka.SelectCheckBox|0|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\Topka\SelectCheckBox.py
-Topka.__init__|0|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\Topka\__init__.py
-opentest.opentest1|0|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\opentest\opentest1.py
-qunartest.__init__|0|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\qunartest\__init__.py
-myunittest.__init__|0|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\myunittest\__init__.py
-opentest.__init__|0|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\opentest\__init__.py
+suite.checkbox|0|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\suite\checkbox.py
+suite.topkalogin|0|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\suite\topkalogin.py
 -- END DISKCACHE
 -- START DICTIONARY
-20
+25
 2=Topka.CreateTopkaActivity
-18=Login_kp.__init__
-6=qunartest.qunar
-11=QunarSearch.setUp
-3=kingsoft.kingsoft_kuaipan
-16=createActivity
-19=QunarSearch
-13=createActivity.setUp
-14=selectCheckBox.setUp
+8=qunartest.qunar
+22=Login_kp.__init__
+16=QunarSearch.setUp
+19=LoginIn.setUp
+25=createActivity
+17=createActivity.setUp
+18=selectCheckBox.setUp
+12=LoginIn
+21=Test
+7=myunittest.testmyscript
+10=Topka.SelectCheckBox
+15=Login_kp
+9=suite.checkbox
+20=Test.setUp
+11=opentest.__init__
+5=kingsoft.kingsoft_kuaipan
+23=QunarSearch
 1=opentest.opentest1
-15=mytest
-17=Test
-5=myunittest.testmyscript
-4=myunittest.script
-20=selectCheckBox
-7=Topka.SelectCheckBox
-10=Login_kp
-12=Test.setUp
-9=myscript
-8=opentest.__init__
+24=mytest
+3=Topka.LoginTopka
+6=myunittest.script
+13=selectCheckBox
+4=suite.topkalogin
+14=myscript
 -- END DICTIONARY
 -- START TREE 1
-10
+15
+all|0|
 cdr|1|cdr!11@
 cre|1|createActivity!17@
-log|1|Login_kp!25@
-mys|1|myscript!33@
-myt|2|mytest!41@mytest!9@
-qun|1|QunarSearch!49@
-sel|1|selectCheckBox!57@
-sui|1|suite!42@
-tes|3|test_HTMLTestRunner!42@Test!9@Test!65@
+fil|3|filename!11@filename!27@filename!19@
+fp|3|fp!11@fp!27@fp!19@
+log|3|LoginIn!33@LoginIn!25@Login_kp!41@
+mys|1|myscript!49@
+myt|2|mytest!57@mytest!9@
+qun|1|QunarSearch!65@
+run|3|runner!11@runner!27@runner!19@
+sel|2|selectCheckBox!73@selectCheckBox!81@
+sui|3|suite!19@suite!58@suite!27@
+tes|5|testsuite!11@Test!9@Test!89@test!83@test_HTMLTestRunner!58@
+top|0|
 url|1|URL!11@
 -- END TREE
 -- START TREE 2
-20
-__i|2|__init__!9&34@__init__!10&26@
-bas|1|base_url!11&51@
-cdr|3|cdr!12&67@cdr!13&19@cdr!14&59@
-dr|1|dr!11&51@
-fil|3|filename!15&11@filename!16&19@filename!17&67@
-foo|1|foo!9&34@
-fp|3|fp!15&11@fp!17&67@fp!16&19@
-l|1|l!10&27@
-log|2|logout!10&26@login!10&26@
-max|1|maxNum!9&34@
-mou|1|mouse!11&51@
-ope|1|opener!18&27@
-run|3|runner!17&67@runner!15&11@runner!16&19@
-set|7|setUp!19&50@setUp!17&66@setUP!15&42@setUp!16&18@setUp!17&10@setUP!15&10@setUp!20&58@
-sig|1|sign!10&26@
-sui|1|suite!16&19@
-tea|4|tearDown!17&10@tearDown!19&50@tearDown!17&66@tearDown!16&18@
-tes|20|test_Logo!17&66@test_input_search_qunar!19&50@test_LogOut!17&66@test_Search!17&10@test_BeginANDend!15&42@test_BeginANDend!15&10@test_ActivityPage!16&18@tesrDown!15&42@test_Login!17&66@test_Search!17&66@test_Info!20&58@test_LogOut!17&10@test_Login!17&10@test_MaxN!15&42@test_MaxN!15&10@test_Logo!17&10@testsuite!15&11@testsuite!17&67@test!20&59@tesrDown!15&10@
-url|3|URL!14&59@URL!13&19@URL!12&67@
-ver|1|verificationErrors!11&51@
+30
+T|0|
+TL|0|
+__i|4|__init__!12&34@__init__!13&74@__init__!14&50@__init__!15&42@
+act|0|
+all|0|
+bas|1|base_url!16&67@
+cdr|4|cdr!17&19@cdr!18&83@cdr!19&27@cdr!20&91@
+ck|0|
+dr|1|dr!16&67@
+fil|1|filename!21&91@
+foo|1|foo!14&50@
+fp|1|fp!21&91@
+l|1|l!15&43@
+log|2|logout!15&42@login!15&42@
+max|1|maxNum!14&50@
+mou|1|mouse!16&67@
+nam|0|
+ope|1|opener!22&43@
+out|0|
+run|1|runner!21&91@
+set|8|setUp!23&66@setUp!21&90@setUP!24&58@setUp!25&18@setUp!21&10@setUp!12&26@setUP!24&10@setUp!13&82@
+sig|1|sign!15&42@
+sui|0|
+tck|0|
+tea|5|tearDown!25&18@tearDown!12&26@tearDown!21&10@tearDown!23&66@tearDown!21&90@
+tes|22|test_Logo!21&90@test_Login!12&26@test_LogOut!21&90@test_input_search_qunar!23&66@test_Search!21&10@test_LoginRead!12&34@test_BeginANDend!24&58@test_BeginANDend!24&10@tesrDown!24&58@test_Search!21&90@test_Login!21&90@test_ActivityPage!25&18@test_Info!13&82@test_LogOut!21&10@test_Info!13&74@test_Login!21&10@test_MaxN!24&58@test_MaxN!24&10@test_Logo!21&10@test_LoginRead!12&26@testsuite!21&91@tesrDown!24&10@
+tl|0|
+tlo|0|
+url|4|URL!17&19@URL!20&91@Url!19&27@URL!18&83@
+ver|1|verificationErrors!16&67@
 -- END TREE

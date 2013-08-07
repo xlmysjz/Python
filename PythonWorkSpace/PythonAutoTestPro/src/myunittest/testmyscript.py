@@ -51,7 +51,7 @@ def test_HTMLTestRunner():#这个函数是下面的显示测试报告用的，见main里的注释
 if __name__ == "__main__":
     unittest.TextTestRunner().run(suite())
     
-    #下面这个是生成一个测试报告，可以将上面的这一行注释掉看一下
+    #下面这个是生成一个测试报告，可以将上面的那一行注释掉看一下
     #test_HTMLTestRunner()
     
     

@@ -1,5 +1,6 @@
 MODULES_MANAGER_V2
 Topka.CreateTopkaActivity|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\Topka\CreateTopkaActivity.py
+Topka.LoginTopka|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\Topka\LoginTopka.py
 Topka.SelectCheckBox|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\Topka\SelectCheckBox.py
 Topka.__init__|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\Topka\__init__.py
 kingsoft.__init__|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\kingsoft\__init__.py
@@ -11,3 +12,6 @@ opentest.__init__|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAuto
 opentest.opentest1|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\opentest\opentest1.py
 qunartest.__init__|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\qunartest\__init__.py
 qunartest.qunar|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\qunartest\qunar.py
+suite.__init__|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\suite\__init__.py
+suite.checkbox|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\suite\checkbox.py
+suite.topkalogin|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\suite\topkalogin.py

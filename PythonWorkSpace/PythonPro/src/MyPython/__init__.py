@@ -1138,6 +1138,7 @@ print dir
 
 #字典排序
 dict={"a":50,"b":32,"c":89}
+#这个是对字典进行排序 a[1] 是按照value，a[0]是按照key,reverse = True是按照从大到小排序 ，如果 不加这个参数或reverse=False 是从小到大
 print sorted(dict.items(),key=lambda a:a[1],reverse=False)
 
 #第26章

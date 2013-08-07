@@ -1,0 +1,29 @@
+#-*-coding:utf-8-*-
+
+import unittest
+import HTMLTestRunner
+
+class topkaTestLogin(unittest.TestCase):
+    
+    def setUp(self):
+        pass
+    
+    def test_topkaLog1(self):#这是登录topka的用例
+
+    def test_check1(self):#这是checkbox的用例
+
+    def tearDown(self):
+        pass
+
+def testHtmlTestRunner():
+
+#执行用例 
+if __name__=="__main__":
+    alltest=unittest.TestSuite()
+    alltest.addTest(topkaTestLogin("test_topkaLog"))
+    alltest.addTest(topkaTestLogin("test_check"))
+    
+    filename=r".\something\Alltestreport.html"
+    fp=file(filename,'w')
+    runner=HTMLTestRunner.HTMLTestRunner(stream=fp,title="AlltestCase",description="TestReport")
+    runner.run(alltest)

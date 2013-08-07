@@ -1,0 +1,126 @@
+#-*-coding:utf-8-*-
+'''
+Created on 2013-8-5
+
+@author: Administrator
+'''
+import time
+from selenium.webdriver import ActionChains
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+
+'''
+class selectCheckBox(object):
+    def __init__(self):
+        self.cdr=webdriver.Chrome()
+        self.URL="http://www.topka.cn"
+        self.cdr.implicitly_wait(3)
+        
+    def test_Info(self):
+        cdr=self.cdr
+        URL=self.URL
+        cdr.get(URL)
+        WebDriverWait(cdr,10).until(lambda cdr:cdr.find_element_by_xpath(".//*[@id='J_connect']/div[2]/div/div/span/a[2]"))
+        time.sleep(2)
+        cdr.find_element_by_xpath(".//*[@id='J_connect']/div[2]/div/div/span/a[2]").click()#点击登录
+        
+        WebDriverWait(cdr,10).until(lambda cdr:cdr.find_element_by_id("email_login"))
+        cdr.find_element_by_id("email_login").click()#点击使用邮箱登陆
+        print cdr.find_element_by_id("email_login").get_attribute("title")
+        
+        #输入用户名密码
+        time.sleep(2)
+        cdr.find_element_by_id("login_email").send_keys("111111@sina.com")
+        cdr.find_element_by_id("login_password").send_keys("123456")
+        cdr.find_element_by_id("remember_me").click()#去掉记住登陆 checkbox
+        #点击登录按钮
+        cdr.find_element_by_id("login").click()
+        
+        time.sleep(5)
+        #鼠标移动到 头像旁边的下落箭头上
+        action=ActionChains(cdr)
+        action.move_to_element(cdr.find_element_by_xpath("//div[@class='tr']/div/span[2]")).perform()
+
+        #下拉菜单点击 个人设置
+        cdr.find_element_by_xpath("//div[@class='tr']/div/span[3]/ul/li[3]/a").click()
+        #点击专家达人认证 标签
+        time.sleep(3)
+        cdr.find_element_by_xpath("//div[@class='shelfsetul']/ul/li[6]/a").click()
+        
+        #全部选中 topka-个人设置-专家达人认证-擅长领域里的 checkbox
+        #cdr.find_element_by_xpath("//li[@id='goodat_area']/input[1]").click()
+        
+        #使用加复数的 find_elements_by_xpath 全部点击一遍 checkbox,下面一共用了三张方法
+        for cli in cdr.find_elements_by_xpath("//input[contains(@type,'checkbox')]"):#这个也行"//input[@type='checkbox']"
+            cli.click()
+        
+        time.sleep(2)
+        #鼠标移动到 头像旁边的下落箭头上
+        action=ActionChains(cdr)
+        action.move_to_element(cdr.find_element_by_xpath("//div[@class='tr']/div/span[2]")).perform()
+        #下拉菜单点击 退出帐号
+        cdr.find_element_by_xpath("//div[@class='tr']/div/span[3]/ul/li[4]/a").click()
+    def outpage(self):
+        
+        #最后退出浏览器
+        cdr=self.cdr
+        cdr.quit()
+'''
+
+#下面两个是全局变量
+cdr=webdriver.Chrome()
+URL="http://www.topka.cn"
+
+class selectCheckBox(object):
+    def __init__(self):
+        global cdr,URL
+        cdr.implicitly_wait(3)
+        cdr.get(URL)
+    def test_Info(self):
+        global cdr
+        
+        WebDriverWait(cdr,10).until(lambda cdr:cdr.find_element_by_xpath(".//*[@id='J_connect']/div[2]/div/div/span/a[2]"))
+        time.sleep(2)
+        cdr.find_element_by_xpath(".//*[@id='J_connect']/div[2]/div/div/span/a[2]").click()#点击登录
+        
+        WebDriverWait(cdr,10).until(lambda cdr:cdr.find_element_by_id("email_login"))
+        cdr.find_element_by_id("email_login").click()#点击使用邮箱登陆
+        print cdr.find_element_by_id("email_login").get_attribute("title")
+        
+        #输入用户名密码
+        time.sleep(2)
+        cdr.find_element_by_id("login_email").send_keys("111111@sina.com")
+        cdr.find_element_by_id("login_password").send_keys("123456")
+        cdr.find_element_by_id("remember_me").click()#去掉记住登陆 checkbox
+        #点击登录按钮
+        cdr.find_element_by_id("login").click()
+        
+        time.sleep(5)
+        #鼠标移动到 头像旁边的下落箭头上
+        action=ActionChains(cdr)
+        action.move_to_element(cdr.find_element_by_xpath("//div[@class='tr']/div/span[2]")).perform()
+
+        #下拉菜单点击 个人设置
+        cdr.find_element_by_xpath("//div[@class='tr']/div/span[3]/ul/li[3]/a").click()
+        #点击专家达人认证 标签
+        time.sleep(3)
+        cdr.find_element_by_xpath("//div[@class='shelfsetul']/ul/li[6]/a").click()
+        
+        #全部选中 topka-个人设置-专家达人认证-擅长领域里的 checkbox
+        #cdr.find_element_by_xpath("//li[@id='goodat_area']/input[1]").click()
+        
+        #使用加复数的 find_elements_by_xpath 全部点击一遍 checkbox,下面一共用了三张方法
+        for cli in cdr.find_elements_by_xpath("//input[contains(@type,'checkbox')]"):#这个也行"//input[@type='checkbox']"
+            cli.click()
+        
+        time.sleep(2)
+        #鼠标移动到 头像旁边的下落箭头上
+        action=ActionChains(cdr)
+        action.move_to_element(cdr.find_element_by_xpath("//div[@class='tr']/div/span[2]")).perform()
+        #下拉菜单点击 退出帐号
+        cdr.find_element_by_xpath("//div[@class='tr']/div/span[3]/ul/li[4]/a").click()
+    def outpage(self):
+        
+        #最后退出浏览器
+        global cdr
+        cdr.quit()

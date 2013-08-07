@@ -16,34 +16,35 @@ MyPython.__init__|0|D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonPr
 9=Weight
 3=MyPython.mysqldbtest
 10=Weight.__init__
-6=MyPython.my_math
-4=MyPython.Drawing
+7=MyPython.my_math
+5=MyPython.Drawing
 1=Game.__init__
-5=MyPython.tt
+6=MyPython.tt
 2=MyPython.message
 8=Game.weights
 11=ProductTestCase
-7=MyPython.__init__
+4=MyPython.__init__
 -- END DICTIONARY
 -- START TREE 1
-20
+21
 bg|1|bg!11@
 chi|1|children!19@
 cle|1|clear_callback!10@
 con|1|conn!19@
 cre|1|createdb!26@
 cur|1|curs!19@
-dra|1|draw!34@
-fit|1|fitt!42@
+dic|1|dict!35@
+dra|1|draw!42@
+fit|1|fitt!50@
 for|1|format!18@
 nam|1|names!19@
 ope|1|operateDatabase!26@
 par|1|parent_id!19@
-pro|3|ProductTestCase!49@process!58@product!50@
+pro|3|ProductTestCase!57@process!34@product!58@
 row|1|rows!19@
 scr|2|screen!11@screen_size!11@
 spr|1|sprites!11@
-squ|1|Square!50@
+squ|1|Square!58@
 top|1|toplevel!19@
 upd|1|updates!11@
 wei|3|Weight!65@Weight!9@weight_image!11@
@@ -58,7 +59,7 @@ rec|2|rect!10&11@rect!10&67@
 res|2|reset!9&10@reset!9&66@
 scr|2|screen_size!9&67@screen!9&67@
 spr|1|sprites!9&67@
-tes|2|testIntegers!11&50@testFloats!11&50@
+tes|2|testIntegers!11&58@testFloats!11&58@
 upd|3|update!9&10@update!9&66@updates!9&67@
 wei|1|weight_image!9&67@
 -- END TREE

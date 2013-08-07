@@ -1,0 +1,55 @@
+[0.001][INFO]:      ChromeDriver 26.0.1383.0 C:\Program Files\eclipse\chromedriver.exe
+[0.586][FINE]:      Initializing session with capabilities {
+   "browserName": "chrome",
+   "chromeOptions": {
+      "args": [  ],
+      "extensions": [  ]
+   },
+   "javascriptEnabled": true,
+   "platform": "ANY",
+   "version": ""
+}
+
+[0.586][INFO]:      Launching chrome: "C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-hang-monitor --disable-prompt-on-repost --dom-automation --full-memory-crash-report --no-default-browser-check --no-first-run --disable-background-networking --disable-sync --disable-translate --disable-web-resources --safebrowsing-disable-auto-update --safebrowsing-disable-download-protection --disable-client-side-phishing-detection --disable-component-update --disable-default-apps --enable-logging --log-level=1 --ignore-certificate-errors about:blank
+[1.588][INFO]:      Connected to Chrome successfully. Version: 27.0.1453.94
+[1.600][FINE]:      Command received (/session/7689774c0010f2453b60e25994ab2a3b)
+[1.601][FINE]:      Command finished (/session/7689774c0010f2453b60e25994ab2a3b) with response {
+   "sessionId": "7689774c0010f2453b60e25994ab2a3b",
+   "status": 0,
+   "value": {
+      "acceptSslCerts": false,
+      "applicationCacheEnabled": false,
+      "browserConnectionEnabled": false,
+      "browserName": "chrome",
+      "chrome.chromedriverVersion": "26.0.1383.0",
+      "cssSelectorsEnabled": true,
+      "databaseEnabled": false,
+      "handlesAlerts": true,
+      "javascriptEnabled": true,
+      "locationContextEnabled": false,
+      "nativeEvents": true,
+      "platform": "windows",
+      "rotatable": false,
+      "takesScreenshot": true,
+      "version": "27.0.1453.94",
+      "webStorageEnabled": true
+   }
+}
+
+[1.690][FINE]:      Command received (/session/7689774c0010f2453b60e25994ab2a3b/timeouts/implicit_wait) with params {
+   "ms": 3000.0,
+   "sessionId": "7689774c0010f2453b60e25994ab2a3b"
+}
+
+[1.690][FINER]:     Waiting for all views to stop loading...
+[1.690][FINER]:     Done waiting for all views to stop loading
+[1.691][FINER]:     Waiting for all views to stop loading...
+[1.691][FINER]:     Done waiting for all views to stop loading
+[1.691][FINE]:      Command finished (/session/7689774c0010f2453b60e25994ab2a3b/timeouts/implicit_wait) with response {
+   "sessionId": "7689774c0010f2453b60e25994ab2a3b",
+   "status": 0,
+   "value": {
+
+   }
+}
+

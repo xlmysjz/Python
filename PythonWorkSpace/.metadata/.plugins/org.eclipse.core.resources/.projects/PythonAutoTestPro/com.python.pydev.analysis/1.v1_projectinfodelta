@@ -1,12 +1,1 @@
-INSTUPkingsoft.kingsoft_kuaipan
-D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\kingsoft\kingsoft_kuaipan.py
-INFOS:&&1|1|2|0&&2|3|2|1&&3|4|2|5&&2|6|2|1&&2|7|2|1&&2|8|2|1&&3|9|2|0
-sign=8
-opener=4
-__init__=3
-Login_kp.__init__=5
-logout=7
-kingsoft.kingsoft_kuaipan=2
-Login_kp=1
-l=9
-login=6
+DELSTRsuite.__init__

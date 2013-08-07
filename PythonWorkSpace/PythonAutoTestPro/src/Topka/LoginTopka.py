@@ -18,7 +18,7 @@ class LoginIn(unittest.TestCase):#
     def setUp(self):
         self.cdr=webdriver.Chrome()
         self.Url="http://www.topka.cn"
-    def test_Login(self,username):
+    def test_Login(self,username):#第一种方法,见main里的注释
         cdr=self.cdr
         Url=self.Url
         cdr.get(Url)
@@ -48,7 +48,7 @@ class LoginIn(unittest.TestCase):#
         #下拉菜单点击 退出帐号
         cdr.find_element_by_xpath("//div[@class='tr']/div/span[3]/ul/li[4]/a").click()
         
-    def test_LoginRead(self):
+    def test_LoginRead(self):#第二种方法,见main里的注释
         cdr=self.cdr
         Url=self.Url
         cdr.get(Url)
