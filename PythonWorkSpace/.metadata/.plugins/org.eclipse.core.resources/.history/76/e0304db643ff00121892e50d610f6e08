@@ -8,7 +8,6 @@ import unittest,time
 from suite import checkbox
 from suite import topkalogin
 import HTMLTestRunner
-from selenium import webdriver
 
 class topkaTestLogin(unittest.TestCase):
     

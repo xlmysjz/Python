@@ -1,10 +1,1 @@
-INSTUPsuite.__init__
-D:\Program Files\kuaipan\Git\Python\PythonWorkSpace\PythonAutoTestPro\src\suite\__init__.py
-INFOS:&&1|1|2|0&&2|3|2|1&&2|4|2|1&&2|5|2|1&&2|6|2|1&&2|7|2|0
-setUp=3
-test_topkaLog=4
-topkaTestLogin=1
-testHtmlTestRunner=7
-suite.__init__=2
-test_check=5
-tearDown=6
+DELSTRsuite.__init__

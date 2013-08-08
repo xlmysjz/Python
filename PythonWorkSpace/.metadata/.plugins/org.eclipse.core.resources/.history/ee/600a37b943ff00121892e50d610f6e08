@@ -8,7 +8,6 @@ import unittest,time
 from suite import checkbox
 from suite import topkalogin
 import HTMLTestRunner
-from selenium import webdriver
 
 class topkaTestLogin(unittest.TestCase):
     
@@ -27,6 +26,7 @@ class topkaTestLogin(unittest.TestCase):
         checkbox.selectCheckBox().test_Info()
         
     def tearDown(self):
+        checkbox.webdriver.Chrome.quit()
         pass
 
 def testHtmlTestRunner():

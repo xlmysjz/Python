@@ -27,7 +27,9 @@ class topkaTestLogin(unittest.TestCase):
         checkbox.selectCheckBox().test_Info()
         
     def tearDown(self):
-        pass
+        topkalogin.webdriver.Chrome().quit()
+        checkbox.webdriver.Chrome().quit()
+        #pass
 
 def testHtmlTestRunner():
     
