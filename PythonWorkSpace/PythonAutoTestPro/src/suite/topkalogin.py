@@ -1,8 +1,7 @@
 #-*-coding:utf-8-*-
 '''
-Created on 2013-8-5
-
-@author: Administrator
+这是循环登录 topka 的例子
+并有如果出错 则截图的功能
 '''
 from selenium import webdriver
 from selenium.webdriver import ActionChains
@@ -37,13 +36,17 @@ class LoginIn(object):
             cdr.find_element_by_id("remember_me").click()#去掉记住登陆 checkbox
             #点击登录按钮
             cdr.find_element_by_id("login").click()
-            
+                
             time.sleep(5)
             #鼠标移动到 头像旁边的下落箭头上
             action=ActionChains(cdr)
             action.move_to_element(cdr.find_element_by_xpath("//div[@class='tr']/div/span[2]")).perform()
+            
             #下拉菜单点击 退出帐号
-            cdr.find_element_by_xpath("//div[@class='tr']/div/span[3]/ul/li[4]/a").click()
+            try:
+                cdr.find_element_by_xpath("//div[@class='tr']/div/span[3]/ul/li[4]/a").click()
+            except:
+                cdr.save_screenshot(".//something//err.png")#如果没找到上面的 元素 则截图
         fopen.close()
         
         #最后退出浏览器

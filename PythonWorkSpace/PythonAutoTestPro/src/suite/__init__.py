@@ -13,6 +13,8 @@ from selenium import webdriver
 class topkaTestLogin(unittest.TestCase):
     
     def setUp(self):
+        #self.verificationErrors = []
+
         pass
     
     def test_topkaLog(self):#这是登录topka的用例
@@ -27,6 +29,7 @@ class topkaTestLogin(unittest.TestCase):
         checkbox.selectCheckBox().test_Info()
         
     def tearDown(self):
+        #self.assertEqual([], self.verificationErrors)
         pass
 
 def testHtmlTestRunner():

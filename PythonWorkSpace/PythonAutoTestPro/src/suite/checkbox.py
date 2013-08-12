@@ -1,8 +1,7 @@
 #-*-coding:utf-8-*-
 '''
-Created on 2013-8-5
-
-@author: Administrator
+这是选中所有复选框的操作
+如果出错 则截图
 '''
 import time
 from selenium.webdriver import ActionChains
@@ -54,9 +53,12 @@ class selectCheckBox(object):
         #鼠标移动到 头像旁边的下落箭头上
         action=ActionChains(cdr)
         action.move_to_element(cdr.find_element_by_xpath("//div[@class='tr']/div/span[2]")).perform()
-        #下拉菜单点击 退出帐号
-        cdr.find_element_by_xpath("//div[@class='tr']/div/span[3]/ul/li[4]/a").click()
         
+        #下拉菜单点击 退出帐号
+        try:
+            cdr.find_element_by_xpath("//div[@class='tr']/div/span[3]/ul/li[4]/a").click()
+        except:
+            cdr.save_screenshot(".//something//logout.png")#如果没找到上面的 元素 则截图
         cdr.quit()
     #def outpage(self):
         
