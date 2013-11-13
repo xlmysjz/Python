@@ -75,13 +75,12 @@ import py2exe
 setup(console=["qiandao.py"])
 
 说明：最后一行里面各自为定
-
-
 3、dos窗口下切换到 需打包的脚本目录 运行命令：python setup.py py2exe
 
 说明：前提是已将python安装目录设置了环境变量，否则无法在此运行python命令
 
 运行后，当前目录下会产生一个dist文件夹，其下有一个qiandao.exe文件，就是打包后的可执行文件。
+
 
 
 '''
